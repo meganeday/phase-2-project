@@ -11,6 +11,17 @@ import QuotesContainer from './Components/QuotesContainer'
 
 export default class App extends Component {
 
+  state = {
+    quotes: []
+  }
+
+  componentDidMount(){
+    fetch("http://localhost:4000/quotes")
+      .then(res => res.json())
+      .then((quotesArr) => {
+        console.log(quotesArr)
+      })
+  }
 
 
 
