@@ -1,8 +1,11 @@
 import React from 'react';
+import Quote from './Quote';
 
-const QuotesContainer = () => {
-
-
+const QuotesContainer = (props) => {
+// console.log(props.arrayOfQuotes)
+let arrayOfComp = props.arrayOfQuotes.map(quoteObj => {
+  return < Quote key={quoteObj.id} quote={quoteObj} />
+})
 
 
    
@@ -10,7 +13,7 @@ const QuotesContainer = () => {
    
      return (
        <ul className="cards">
-         {/* {enter quote cards here } */}
+         {arrayOfComp}
        </ul>
      )
    

@@ -19,21 +19,24 @@ export default class App extends Component {
     fetch("http://localhost:4000/quotes")
       .then(res => res.json())
       .then((quotesArr) => {
-        console.log(quotesArr)
+        // console.log(quotesArr)
+        this.setState({
+          quotes: quotesArr
+        })
       })
   }
 
 
 
   render() {
-
-
+    // console.log(this.state)
+    let arrayOfQuotes = this.state.quotes
 
     return (
       <div>
       <Header />
       <SearchBar />
-      <QuotesContainer />  
+      <QuotesContainer arrayOfQuotes={arrayOfQuotes} />  
       </div>
     )
   }

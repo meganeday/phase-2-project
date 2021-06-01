@@ -1,24 +1,28 @@
-import React from 'react';
-
 import React, { Component } from 'react'
 
-export default class Quotes extends Component {
-
-
+export default class Quote extends Component {
 
 
 
     render() {
+      // console.log(this.props.quote)
+      let {author, image, quote, source, likes, favorite} = this.props.quote
         return (
 
             <li className="cards__item">
             <div className="card">
-              {/* <img src={AUTHOR IMAGE HERE!!!} alt={AUTHOR NAME HERE} className="card__image" /> */}
+              <div>
+                <p className="card__title">"{quote}"</p>
+                <p className="card__text"><em>{source}</em></p>
+                <button>♡</button>
+                <p>{likes}</p>
+              </div>
+              
               <div className="card__content">
-                {/* <div className="card__title">{QUOTE GOES HERE}</div> */}
-                {/* <p className="card__text">{BIO GOES HERE                }</p> */}
+                <p className="card__text">-{author}</p>
+                <img src={image} alt={author} className="card__image" />
                 <div className="card__detail">
-                  {/* <p>{LIKES GO HERE}</p> */}
+                  
                   <br></br>
                   <div></div>
                   {/* <p>{PLACEHOLDER FOR POSSIBLE USE} </p> */}
