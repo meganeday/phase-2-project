@@ -27,6 +27,13 @@ export default class Quote extends Component {
   }
 
 
+  deleteHandler = () => {
+   this.props.deleteQuote(this.props.quote.id)
+  }
+
+
+
+
 
     render() {
       
@@ -52,7 +59,7 @@ export default class Quote extends Component {
             <Card.Description className="likes">
               <button onClick={this.likeIncreaser}>♡</button>
               {likes}
-              <button onClick={console.log("Deleted")}>delete</button>
+              <button onClick={this.deleteHandler}>delete</button>
             </Card.Description>
 
           </Card>

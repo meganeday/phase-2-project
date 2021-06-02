@@ -6,7 +6,7 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/J._R._R._Tolkien%2C_1940s.jpg",
       "quote": "There is some good in this world, and it's worth fighting for.",
       "source": "The Two Towers",
-      "likes": 0,
+      "likes": 1,
       "favorite": false
     },
     {
@@ -176,6 +176,15 @@
       "source": "As You Like It",
       "likes": 0,
       "favorite": false
+    },
+    {
+      "author": "Erick Kim",
+      "image": "",
+      "quote": "\"Im the most rootin tootin helper teacher around\"",
+      "source": "Memoirs of a Mo",
+      "likes": 0,
+      "favorite": false,
+      "id": 21
     }
   ]
 }

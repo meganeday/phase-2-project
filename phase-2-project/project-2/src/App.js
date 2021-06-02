@@ -35,15 +35,21 @@ export default class App extends Component {
     })
   }
 
-  deleteQuote = () => {
-    fetch("http://localhost:4000/quotes", {
+  //the below function deletes a card off the page and off the backend
+  deleteQuote = (id) => {
+    fetch(`http://localhost:4000/quotes/${id}`, {
       method: "DELETE",
     })
       .then(res => res.json())
       .then(() => {
-        this.setState({
-          quotes: ""
-        })
+       
+       let arrayWithoutDeleted = this.state.quotes.filter((quoteObj) => { 
+         return quoteObj.id !== id
+             })
+             this.setState({      
+                 quotes: arrayWithoutDeleted
+
+             })    
       })
   }
 
