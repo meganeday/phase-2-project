@@ -55,6 +55,19 @@ export default class App extends Component {
      })
   }
   
+  //The Below function updates the likes on the fron end
+  updateLikesOnState =(updatedObj) =>{
+    let copyOfQuotes = this.state.quotes.map((quoteObj) =>{
+      if(quoteObj.id === updatedObj.id){
+         return updatedObj  
+      } else {
+      return quoteObj
+      }     
+    })
+    this.setState({
+    quotes: copyOfQuotes
+    })
+  }
 
 
   render() {
@@ -72,7 +85,7 @@ export default class App extends Component {
       <Header />
       <SearchBar filter={this.state.filter} updateFilterState={this.updateFilterState} />
       <AddQuote addQuoteToEndOfState={this.addQuoteToEndOfState} />
-      <QuotesContainer arrayOfQuotes={newArrayofQuotes} deleteQuote={this.deleteQuote} />  
+      <QuotesContainer arrayOfQuotes={newArrayofQuotes} deleteQuote={this.deleteQuote} updateLikesOnState={this.updateLikesOnState}/>  
       </div>
     )
   }

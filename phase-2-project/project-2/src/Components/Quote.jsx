@@ -12,8 +12,24 @@ export default class Quote extends Component {
     })
   }
 
+  likeIncreaser = () => {
+    this.props.quote.likes += 1
+    let data = {likes: this.props.quote.likes}
+    fetch(`http://localhost:4000/quotes/${this.props.quote.id}`, {
+      method: "PATCH",
+      headers: {
+      "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+      })
+      .then((r) => r.json())
+      .then((quoteObj) => this.props.updateLikesOnState(quoteObj));
+  }
+
+
+
     render() {
-      // console.log(this.props.quote)
+      
       let {author, image, quote, source, likes, favorite} = this.props.quote
         return (
           <Card className="quote_card">
@@ -34,7 +50,7 @@ export default class Quote extends Component {
             </div>
             
             <Card.Description className="likes">
-              <button>♡</button>
+              <button onClick={this.likeIncreaser}>♡</button>
               {likes}
               <button onClick={console.log("Deleted")}>delete</button>
             </Card.Description>
