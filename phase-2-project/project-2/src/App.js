@@ -13,7 +13,8 @@ import AddQuote from './Components/AddQuote';
 export default class App extends Component {
 
   state = {
-    quotes: []
+    quotes: [],
+    filter: ""
   }
 
   componentDidMount(){
@@ -46,17 +47,32 @@ export default class App extends Component {
       })
   }
 
+  //The Below funtion updates the filter in the state above
+  
+  updateFilterState= (value) => {
+     this.setState({
+       filter: value
+     })
+  }
+  
+
 
   render() {
-    // console.log(this.state)
     let arrayOfQuotes = this.state.quotes
+    //Line 63 and 64 filter by source and author
+    let newArrayofQuotes = arrayOfQuotes.filter((arrayObj) => { 
+    return (arrayObj.author.toLowerCase().includes(this.state.filter.toLowerCase()) || arrayObj.source.toLowerCase().includes(this.state.filter.toLowerCase()))
+    })
+    
+
+
 
     return (
       <div>
       <Header />
-      <SearchBar />
+      <SearchBar filter={this.state.filter} updateFilterState={this.updateFilterState} />
       <AddQuote addQuoteToEndOfState={this.addQuoteToEndOfState} />
-      <QuotesContainer arrayOfQuotes={arrayOfQuotes} deleteQuote={this.deleteQuote} />  
+      <QuotesContainer arrayOfQuotes={newArrayofQuotes} deleteQuote={this.deleteQuote} />  
       </div>
     )
   }
