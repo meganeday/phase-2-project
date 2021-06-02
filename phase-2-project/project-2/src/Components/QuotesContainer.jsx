@@ -8,9 +8,12 @@ const QuotesContainer = (props) => {
   });
 
   return (
-    <ul className="cards">
+  <div>
+    <h3>Click on quote for to see source details</h3>
+    <ul className="cards">    
       {arrayOfComp}
     </ul>
+  </div>  
   );
 };
    

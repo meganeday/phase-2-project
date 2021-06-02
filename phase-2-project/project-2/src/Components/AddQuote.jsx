@@ -52,6 +52,7 @@ class AddQuote extends React.Component {
   render() {
     return (
       <Card>
+        <h3>Add your own quote to the collection!</h3>
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
             <label>Author</label>
