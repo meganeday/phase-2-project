@@ -34,6 +34,18 @@ export default class App extends Component {
     })
   }
 
+  deleteQuote = () => {
+    fetch("http://localhost:4000/quotes", {
+      method: "DELETE",
+    })
+      .then(res => res.json())
+      .then(() => {
+        this.setState({
+          quotes: ""
+        })
+      })
+  }
+
 
   render() {
     // console.log(this.state)
@@ -44,7 +56,7 @@ export default class App extends Component {
       <Header />
       <SearchBar />
       <AddQuote addQuoteToEndOfState={this.addQuoteToEndOfState} />
-      <QuotesContainer arrayOfQuotes={arrayOfQuotes} />  
+      <QuotesContainer arrayOfQuotes={arrayOfQuotes} deleteQuote={this.deleteQuote} />  
       </div>
     )
   }

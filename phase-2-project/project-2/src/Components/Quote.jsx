@@ -16,7 +16,8 @@ export default class Quote extends Component {
       // console.log(this.props.quote)
       let {author, image, quote, source, likes, favorite} = this.props.quote
         return (
-          <Card className="quote_card" onClick={this.toggleShowingFront}>
+          <Card className="quote_card">
+            <div onClick={this.toggleShowingFront}>
             {this.state.showingFront?
                 <Card.Content>
                   <Card.Header className="quote">"{quote}"</Card.Header>
@@ -30,11 +31,14 @@ export default class Quote extends Component {
                   </div>
                 </Card.Content>
             }
+            </div>
+            
             <Card.Description className="likes">
               <button>♡</button>
               {likes}
-              <button>delete</button>
+              <button onClick={console.log("Deleted")}>delete</button>
             </Card.Description>
+
           </Card>
             
             
