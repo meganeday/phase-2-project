@@ -13,6 +13,7 @@ class SearchBar extends React.Component {
       <div className="search">
         <input type="text" className="searchTerm" />
       </div>
+
     );
   }
 

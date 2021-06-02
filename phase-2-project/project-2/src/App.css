@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  color: #999999;
+  color: #011627;
   font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -23,11 +23,11 @@ body {
 
 #main-header{
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 10rem;
+  margin: auto;
+  text-align: center;
   border-radius: 30%;
   opacity: 80%;
+  font-size: 8vw;
 }
 
 .centered {
@@ -52,7 +52,7 @@ input[type='checkbox']{
 .searchTerm {
   text-align: center;
   width: 100%;
-  border: 3px solid #4d01c7bd;
+  border: 3px solid #2EC4B6;
   padding: 5px;
   height: 3rem;
   border-radius: 10px;
@@ -67,8 +67,8 @@ img {
 }
 
 .btn {
-  background-color: white;
-  color: #696969;
+  background-color: #FDFFFC;
+  color: #FDFFFC;
 }
 
 .btn--block {
@@ -91,7 +91,7 @@ img {
 }
 
 .card {
-  background-color: white;
+  background-color: #FDFFFC;
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
   display: flex;
@@ -124,7 +124,7 @@ img {
 
 
 .card__title {
-  color: #696969;
+  color: #FDFFFC;
   font-size: 1.25rem;
   font-weight: 300;
   letter-spacing: 2px;
@@ -155,4 +155,41 @@ img {
   .cards__item{
     width: 50%;
   }
+}
+
+.quote_card{
+  height: 400px;
+  width: 250px;
+  float: left;
+  padding: 10px;
+  margin: 20px; 
+  position: relative;
+}
+
+.author_img{
+  height: 260px;
+  width: 200px;
+  margin: auto;
+}
+
+.author_info{
+  text-align: center;
+  margin-top: 20%;
+  font-size: 12pt;
+}
+
+.likes{
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+}
+
+.quote{
+  display: flex;
+  font-size: 15pt;
+  margin: 10px;
+}
+
+button{
+  margin: 10px;
 }

@@ -1,12 +1,13 @@
 
 import './App.css';
 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './App.css';
 
-import Header from './Components/Header'
+import Header from './Components/Header';
 import SearchBar from './Components/SearchBar';
-import QuotesContainer from './Components/QuotesContainer'
+import QuotesContainer from './Components/QuotesContainer';
+import AddQuote from './Components/AddQuote';
 
 
 export default class App extends Component {
@@ -26,6 +27,12 @@ export default class App extends Component {
       })
   }
 
+  addQuoteToEndOfState = (newQuote) => {
+    let newArr = [...this.state.quotes, newQuote]
+    this.setState({
+      quotes: newArr
+    })
+  }
 
 
   render() {
@@ -36,6 +43,7 @@ export default class App extends Component {
       <div>
       <Header />
       <SearchBar />
+      <AddQuote addQuoteToEndOfState={this.addQuoteToEndOfState} />
       <QuotesContainer arrayOfQuotes={arrayOfQuotes} />  
       </div>
     )
