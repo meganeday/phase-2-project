@@ -60,7 +60,8 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/John_Steinbeck_1939_%28cropped%29.jpg",
       "quote": "A man, after he has brushed off the dust and chips of his life, will have left only the hard, clean questions: Was it good or was it evil? Have I done well — or ill?",
       "source": "East of Eden",
-      "likes": 0
+      "likes": 0,
+      "favorite": false
     },
     {
       "id": 8,
@@ -68,7 +69,8 @@
       "image": "https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F558c759ee4b05c2c34315957%2F0x0.jpg%3Ffit%3Dscale%26background%3D000000",
       "quote": "The only way out of the labyrinth of suffering is to forgive.",
       "source": "Looking for Alaska",
-      "likes": 0
+      "likes": 0,
+      "favorite": false
     },
     {
       "id": 9,
@@ -139,7 +141,8 @@
       "image": "https://media.them.us/photos/5f04f4866615faef40dc304a/3:4/w_1500,h_2000,c_limit/JK%20Rowling.jpg",
       "quote": "It is our choices, Harry, that show what we truly are, far more than our abilities.",
       "source": "Harry Potter and the Chamber of Secrets",
-      "likes": 0
+      "likes": 0,
+      "favorite": false
     },
     {
       "id": 17,

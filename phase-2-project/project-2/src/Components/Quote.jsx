@@ -3,7 +3,8 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 
 export default class Quote extends Component {
   state = {       
-    showingFront : true
+    showingFront : true,
+    favorite: false
   }
 
   toggleShowingFront = () => {
@@ -31,11 +32,42 @@ export default class Quote extends Component {
    this.props.deleteQuote(this.props.quote.id)
   }
 
+  toggleFavorite = () => {
+      this.setState({
+         favorite: !this.state.favorite
+      },
+
+           () => {
+                 
+           let data = {favorite: this.state.favorite}
+           fetch(`http://localhost:4000/quotes/${this.props.quote.id}`, {
+           method: "PATCH",
+           headers: {
+           "Content-Type": "application/json",
+           },
+           body: JSON.stringify(data),
+           })
+           .then((r) => r.json())
+           .then((quoteObj) => console.log(quoteObj));
+           
+        }
+      )   
+    
+  }
+
+
+
+
+
+
+
+
 
 
 
 
     render() {
+      console.log(this.state.favorite)
       
       let {author, image, quote, source, likes, favorite} = this.props.quote
         return (
@@ -60,6 +92,7 @@ export default class Quote extends Component {
               <button onClick={this.likeIncreaser}>♡</button>
               {likes}
               <button onClick={this.deleteHandler}>delete</button>
+              {this.state.favorite ? <button onClick={this.toggleFavorite}>★</button> :<button onClick={this.toggleFavorite} >☆</button>}
             </Card.Description>
 
           </Card>
