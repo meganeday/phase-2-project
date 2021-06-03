@@ -51,11 +51,11 @@ class AddQuote extends React.Component {
 
   render() {
     return (
-      <Card>
+      <Card className="addForm">
         <h3>Add your own quote to the collection!</h3>
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
-            <label>Author</label>
+            <label>Author  </label>
             <input 
               id="author"
               name="author"
@@ -65,7 +65,7 @@ class AddQuote extends React.Component {
             />
           </Form.Field>
           <Form.Field>
-            <label>Quote</label>
+            <label>Quote  </label>
             <input 
               id="quote" 
               name="quote" 
@@ -75,7 +75,7 @@ class AddQuote extends React.Component {
             />
           </Form.Field>
           <Form.Field>
-            <label>Source</label>
+            <label>Source  </label>
             <input 
               id="source" 
               name="source" 
@@ -85,7 +85,7 @@ class AddQuote extends React.Component {
             />
           </Form.Field>
           <Form.Field>
-            <label>Author Photo</label>
+            <label>Author Photo  </label>
             <input 
               id="image" 
               name="image" 
