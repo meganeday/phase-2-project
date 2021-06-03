@@ -48,7 +48,7 @@ export default class Quote extends Component {
            body: JSON.stringify(data),
            })
            .then((r) => r.json())
-           .then((quoteObj) => console.log(quoteObj));
+           .then((quoteObj) => this.props.updateFavoriteOnState(quoteObj));
            
         }
       )   
@@ -57,17 +57,7 @@ export default class Quote extends Component {
 
 
 
-
-
-
-
-
-
-
-
-
     render() {
-      console.log(this.state.favorite)
       
       let {author, image, quote, source, likes, favorite} = this.props.quote
         return (

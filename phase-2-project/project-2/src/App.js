@@ -14,7 +14,8 @@ export default class App extends Component {
 
   state = {
     quotes: [],
-    filter: ""
+    filter: "",
+    favoritesFilterActive: false 
   }
 
   componentDidMount(){
@@ -75,12 +76,39 @@ export default class App extends Component {
     })
   }
 
+  //The Below function update the toggle for the favorites state above
+  favoritesStateToggle = () => {
+  this.setState({
+    favoritesFilterActive: !this.state.favoritesFilterActive},
+    )
+  }
+
+  updateFavoriteOnState =(updatedObj) => {
+   let anotherCopyOfQuotes = this.state.quotes.map((quoteObj) =>{
+    if (quoteObj.id == updatedObj.id){
+    return   updatedObj
+    }else{
+    return quoteObj}
+    })
+    this.setState({
+    quotes: anotherCopyOfQuotes
+
+    })
+
+  }
+
+
+
+
 
   render() {
+    console.log(this.state.favoritesFilterActive)
     let arrayOfQuotes = this.state.quotes
-    //Line 63 and 64 filter by source and author
     let newArrayofQuotes = arrayOfQuotes.filter((arrayObj) => { 
-    return (arrayObj.author.toLowerCase().includes(this.state.filter.toLowerCase()) || arrayObj.source.toLowerCase().includes(this.state.filter.toLowerCase()))
+      if(this.state.favoritesFilterActive){
+      return (arrayObj.favorite == true)
+      } else {
+      return (arrayObj.author.toLowerCase().includes(this.state.filter.toLowerCase()) || arrayObj.source.toLowerCase().includes(this.state.filter.toLowerCase()))}
     })
     
 
@@ -91,7 +119,8 @@ export default class App extends Component {
       <Header />
       <SearchBar filter={this.state.filter} updateFilterState={this.updateFilterState} />
       <AddQuote addQuoteToEndOfState={this.addQuoteToEndOfState} />
-      <QuotesContainer arrayOfQuotes={newArrayofQuotes} deleteQuote={this.deleteQuote} updateLikesOnState={this.updateLikesOnState}/>  
+      <button onClick={this.favoritesStateToggle}>Filter by Favorites {this.state.favoritesFilterActive? "ON" : "OFF" }</button>
+      <QuotesContainer arrayOfQuotes={newArrayofQuotes} deleteQuote={this.deleteQuote} updateLikesOnState={this.updateLikesOnState} updateFavoriteOnState={this.updateFavoriteOnState}/>  
       </div>
     )
   }
