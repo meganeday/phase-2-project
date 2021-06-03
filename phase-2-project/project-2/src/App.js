@@ -94,7 +94,6 @@ export default class App extends Component {
     quotes: anotherCopyOfQuotes
 
     })
-
   }
 
 
@@ -102,7 +101,7 @@ export default class App extends Component {
 
 
   render() {
-    console.log(this.state.favoritesFilterActive)
+   
     let arrayOfQuotes = this.state.quotes
     let newArrayofQuotes = arrayOfQuotes.filter((arrayObj) => { 
       if(this.state.favoritesFilterActive){
